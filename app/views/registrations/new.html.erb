@@ -1,0 +1,30 @@
+<h1>Registration</h1>
+
+  <form action="/registration" method="POST">
+    <%= csrf_meta_tags %>
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    <br>
+    <input type="text" name="user[name]" placeholder="Name">
+    <br>
+    <input type="email" name="user[email]" placeholder="Email">
+    <br>
+    <input type="number" name="user[contact_no]" placeholder="Contact Number">
+    <br>
+    <input type="password" name="user[password]" placeholder="Password">
+    <br>
+    <input type="password" name="user[password_confirmation]" placeholder="Confirm Password">
+    <br>
+    <input type="submit" name="submit" class="submit">
+  </form>
+  <div class="errors">
+  <% if flash[:register_errors] %>
+    <% flash[:register_errors].each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+  <% end %>
+</div>
+</body>
+</html>
+
+
+
